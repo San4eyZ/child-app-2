@@ -1,0 +1,10 @@
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__link {
+    margin: 0 5px;
+
+    font-size: 2.2rem;
+}

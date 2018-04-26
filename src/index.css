@@ -1,57 +1,83 @@
 html {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  font-family: 'Open Sans', 'Arial', sans-serif;
-  background: #803e6d;
-  background: url("./assets/images/main-background.png") top center repeat-x;
-  background-size: auto 100%;
+    background: #803e6d;
+    background: url("./assets/images/main-background.png") top center repeat-x;
+    background-size: auto 100%;
+
+    color: #ffae7e;
+    font-family: 'Lobster', cursive;
+}
+
+.display {
+    font-size: 5rem;
+}
+
+.header1 {
+    font-size: 3rem;
+}
+
+.header2 {
+    font-size: 2.5rem;
+}
+
+.header3 {
+    font-size: 2rem;
+}
+
+.header4 {
+    font-size: 1.6rem;
+}
+
+.text {
+    font-size: 2rem;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media (min-width: 576px) {
-  .container {
-    max-width: 520px;
-  }
+    .container {
+        max-width: 520px;
+    }
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 680px;
-  }
+    .container {
+        max-width: 680px;
+    }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 810px;
-  }
+    .container {
+        max-width: 810px;
+    }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 980px;
-  }
+    .container {
+        max-width: 980px;
+    }
 }
 
 .container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }

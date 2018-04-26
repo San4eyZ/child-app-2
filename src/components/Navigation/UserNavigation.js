@@ -6,10 +6,18 @@ class UserNavigation extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <NavigationLink to="/game">Играть</NavigationLink>
-                <NavigationLink to="/homework">Домашка</NavigationLink>
-                <NavigationLink to="/stats">Статистика</NavigationLink>
-                <NavigationLink to="/settings">Настройки</NavigationLink>
+                <NavigationLink to="/game" className="navigation__link">
+                    Играть
+                </NavigationLink>
+                <NavigationLink to="/homework" className="navigation__link">
+                    Домашка
+                </NavigationLink>
+                <NavigationLink to="/stats" className="navigation__link">
+                    Статистика
+                </NavigationLink>
+                <NavigationLink to="/settings" className="navigation__link">
+                    Настройки
+                </NavigationLink>
             </React.Fragment>
         );
     }

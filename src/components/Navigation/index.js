@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import UserNavigation from './UserNavigation';
 import TeacherNavigation from './TeacherNavigation';
 
+import './Navigation.css';
+
 const types = {
     user: UserNavigation,
     teacher: TeacherNavigation
@@ -14,7 +16,7 @@ class Navigation extends React.Component {
         const CurrentNav = types[this.props.type];
 
         return (
-            <nav className={this.props.className}>
+            <nav className={`navigation ${this.props.className}`}>
                 <CurrentNav/>
             </nav>
         );

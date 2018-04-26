@@ -6,8 +6,12 @@ class TeacherNavigation extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <NavigationLink to="/groups">Группы</NavigationLink>
-                <NavigationLink to="/settings">Настройки</NavigationLink>
+                <NavigationLink to="/groups" className="navigation__link">
+                    Группы
+                </NavigationLink>
+                <NavigationLink to="/settings" className="navigation__link">
+                    Настройки
+                </NavigationLink>
             </React.Fragment>
         );
     }
