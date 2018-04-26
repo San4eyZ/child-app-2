@@ -1,0 +1,24 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+
+    background: url("../../assets/images/logo-bg.png") center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+.logo__name {
+    font-family: 'Lobster', cursive;
+    color: #ffae7e;
+    font-size: 2.5rem;
+    text-align: center;
+
+    transition: color 0.5s ease;
+}
+
+.logo__name:hover {
+    text-decoration: none;
+    color: #ff7b2f;
+}

@@ -1,0 +1,54 @@
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+path {
+    opacity: 0;
+    animation: 1s fade linear infinite;
+}
+
+.st10 {
+    animation-delay: 100ms;
+}
+
+.st9 {
+    animation-delay: 200ms;
+}
+
+.st8 {
+    animation-delay: 300ms;
+}
+
+.st7 {
+    animation-delay: 400ms;
+}
+
+.st6 {
+    animation-delay: 500ms;
+}
+
+.st5 {
+    animation-delay: 600ms;
+}
+
+.st4 {
+    animation-delay: 700ms;
+}
+
+.st3 {
+    animation-delay: 800ms;
+}
+
+.st2 {
+    animation-delay: 900ms;
+}
+
+.st1 {
+    animation-delay: 1000ms;
+}

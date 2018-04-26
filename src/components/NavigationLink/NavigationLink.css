@@ -1,0 +1,16 @@
+.navigation-link {
+    font-family: 'Lobster', cursive;
+    color: #ffae7e;
+    font-size: 2rem;
+    text-align: center;
+
+    transition: color 0.5s ease;
+}
+
+.navigation-link:hover {
+    color: #ff7b2f;
+}
+
+.navigation-link_active {
+    color: #ff5c2f;
+}
