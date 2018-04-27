@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import b_ from 'b_';
+import classNames from 'classnames';
 
 import './Button.css';
 
@@ -13,11 +14,11 @@ const themes = {
 
 class Button extends React.Component {
     render() {
-        const { children, theme, onClick, disabled } = this.props;
+        const { children, theme, onClick, disabled, className } = this.props;
 
         return (
             <button
-                className={b({ theme: themes[theme] })}
+                className={classNames(b({ theme: themes[theme] }), className)}
                 onClick={onClick}
                 disabled={disabled}
             >
@@ -30,14 +31,17 @@ class Button extends React.Component {
 Button.propTypes = {
     children: PropTypes.node,
     theme: PropTypes.oneOf(Object.keys(themes)),
-    onClick: PropTypes.func.isRequired,
-    disabled: PropTypes.bool
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    className: PropTypes.string
 };
 
 Button.defaultProps = {
     children: [],
     theme: 'light',
-    disabled: false
+    disabled: false,
+    className: '',
+    onClick: () => {}
 };
 
 export default Button;

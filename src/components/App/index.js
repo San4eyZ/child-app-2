@@ -4,9 +4,10 @@ import { observer } from 'mobx-react';
 
 import './App.css';
 
-import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, LoginModal } from '../../components';
+import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, LoginModal, RegisterModal, ResetModal } from '../../components';
 
 import userStore from '../../stores/user-store';
+import uiStore from '../../stores/ui-store';
 
 @observer
 class App extends Component {
@@ -22,6 +23,16 @@ class App extends Component {
         );
     }
 
+    static renderModals() {
+        return (
+            <React.Fragment>
+                {uiStore.displays.login && <LoginModal closeHandler={uiStore.toggleModal('login')}/>}
+                {uiStore.displays.register && <RegisterModal closeHandler={uiStore.toggleModal('register')}/>}
+                {uiStore.displays.reset && <ResetModal closeHandler={uiStore.toggleModal('reset')}/>}
+            </React.Fragment>
+        );
+    }
+
     componentDidMount() {
         userStore.initialAuth();
     }
@@ -34,9 +45,9 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="App">
                         <Header/>
-                        <LoginModal closeHandler={() => {}}/>
                         {App.renderMain()}
                         <Footer/>
+                        {App.renderModals()}
                     </div>
                 </BrowserRouter>
             )

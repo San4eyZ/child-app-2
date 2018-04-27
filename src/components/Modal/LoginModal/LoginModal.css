@@ -1,0 +1,10 @@
+.login__first-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.login__second-group {
+    display: flex;
+    justify-content: space-evenly;
+}
