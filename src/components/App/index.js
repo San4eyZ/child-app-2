@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 
 import './App.css';
 
-import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, Input, Checkbox, Button } from '../../components';
+import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, LoginModal } from '../../components';
 
 import userStore from '../../stores/user-store';
 
@@ -34,9 +34,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="App">
                         <Header/>
-                        <Input type="text" theme="dark"/>
-                        <Checkbox title="Checkbox" theme="dark"/>
-                        <Button theme="dark">Button</Button>
+                        <LoginModal closeHandler={() => {}}/>
                         {App.renderMain()}
                         <Footer/>
                     </div>

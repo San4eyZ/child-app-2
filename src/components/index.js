@@ -16,8 +16,8 @@ import Overlay from './Overlay';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import Button from './Button';
-
+import LoginModal from './LoginModal';
 
 // eslint-disable-next-line
 export { App, Preloader, Footer, Logo, NavigationLink, Navigation, Header, Home, LoaderPage, Game,
-    Homework, Settings, Stats, Overlay, Input, Checkbox, Button };
+    Homework, Settings, Stats, Overlay, Input, Checkbox, Button, LoginModal };

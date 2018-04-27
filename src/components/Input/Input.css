@@ -1,5 +1,7 @@
 .input {
     border: 1px solid;
+
+    transition: background-color 0.2s;
 }
 
 .input_theme_dark {

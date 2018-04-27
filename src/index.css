@@ -16,6 +16,7 @@ body {
 
 .display {
     font-size: 5rem;
+    font-weight: normal;
 }
 
 .header1 {
@@ -36,6 +37,20 @@ body {
 
 .text {
     font-size: 1.6rem;
+}
+
+.modal-form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form__input {
+    padding: 12px;
+    margin-bottom: 20px;
+
+    font-size: 1.6rem ;
 }
 
 a {

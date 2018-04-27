@@ -11,6 +11,10 @@ const themes = {
 };
 
 class Input extends React.Component {
+    focus = () => {
+        this.input.focus();
+    };
+
     render() {
         const { type, theme, className, placeholder, onInput, value } = this.props;
 
@@ -21,6 +25,7 @@ class Input extends React.Component {
                 onInput={onInput}
                 placeholder={placeholder}
                 value={value}
+                ref={(inp) => { this.input = inp; }}
             />
         );
     }
