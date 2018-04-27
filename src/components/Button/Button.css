@@ -1,0 +1,36 @@
+.button {
+    border: none;
+
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.button:disabled {
+    pointer-events: none;
+}
+
+.button_theme_light {
+    background: #ffae7e;
+    color: #4a2359;
+}
+
+.button_theme_light:hover {
+    color: #8b256e;
+    background: #ff7b2f;
+}
+
+.button_theme_dark {
+    background: #4a2359;
+    color: #ffae7e;
+}
+
+.button_theme_dark:hover {
+    color: #ff7b2f;
+    background: #6c3382;
+}

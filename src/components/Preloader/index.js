@@ -3,17 +3,24 @@ import PropTypes from 'prop-types';
 
 import './Preloader.css';
 
+const colors = {
+    light: '#ffae7e',
+    dark: '#4a2359'
+};
+
 class Preloader extends React.Component {
     render() {
+        const { className, size, theme } = this.props;
+
         return (
             <div
-                className={`preloader ${this.props.className}`}
-                style={{ width: this.props.size, height: this.props.size }}
+                className={`preloader ${className}`}
+                style={{ width: size, height: size }}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
-                    style={{ fill: this.props.color }}
+                    style={{ fill: colors[theme] }}
                 >
                     <path
                         className="st1"
@@ -63,13 +70,13 @@ class Preloader extends React.Component {
 
 Preloader.propTypes = {
     className: PropTypes.string,
-    color: PropTypes.string,
+    theme: PropTypes.oneOf(Object.keys(colors)),
     size: PropTypes.number
 };
 
 Preloader.defaultProps = {
     className: '',
-    color: '#ffae7e',
+    theme: 'light',
     size: 100
 };
 

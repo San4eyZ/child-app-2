@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 
 import './App.css';
 
-import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats } from '../../components';
+import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, Input, Checkbox, Button } from '../../components';
 
 import userStore from '../../stores/user-store';
 
@@ -23,17 +23,20 @@ class App extends Component {
     }
 
     componentDidMount() {
-        userStore.loadUser();
+        userStore.initialAuth();
     }
 
     render() {
         return (
             userStore.isFetching ? (
-                <LoaderPage/>
+                <LoaderPage fixed/>
             ) : (
                 <BrowserRouter>
                     <div className="App">
                         <Header/>
+                        <Input type="text" theme="dark"/>
+                        <Checkbox title="Checkbox" theme="dark"/>
+                        <Button theme="dark">Button</Button>
                         {App.renderMain()}
                         <Footer/>
                     </div>

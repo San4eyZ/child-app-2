@@ -12,6 +12,12 @@ import Game from './Game';
 import Homework from './Homework';
 import Settings from './Settings';
 import Stats from './Stats';
+import Overlay from './Overlay';
+import Input from './Input';
+import Checkbox from './Checkbox';
+import Button from './Button';
+
 
 // eslint-disable-next-line
-export { App, Preloader, Footer, Logo, NavigationLink, Navigation, Header, Home, LoaderPage, Game, Homework, Settings, Stats };
+export { App, Preloader, Footer, Logo, NavigationLink, Navigation, Header, Home, LoaderPage, Game,
+    Homework, Settings, Stats, Overlay, Input, Checkbox, Button };

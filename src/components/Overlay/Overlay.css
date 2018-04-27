@@ -1,0 +1,55 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.overlay__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.overlay__close::before,
+.overlay__close::after {
+    content: '';
+    position: absolute;
+    left: 40px;
+
+    width: 4px;
+    height: 35px;
+
+    border-radius: 2px;
+    background: #ffae7e;
+    visibility: visible;
+
+    transition: background-color 0.2s;
+}
+
+.overlay__close:hover::before,
+.overlay__close:hover::after {
+    background: #ff7b2f;
+}
+
+.overlay__close::before {
+    transform: rotate(-45deg);
+}
+
+.overlay__close::after {
+    transform: rotate(45deg);
+}
