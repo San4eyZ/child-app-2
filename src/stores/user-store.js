@@ -15,7 +15,7 @@ class UserStore {
             return 'guest';
         }
 
-        if (allowedRoles.includes(this.user.role)) {
+        if (allowedRoles.indexOf(this.user.role) !== -1) {
             return this.user.role;
         }
 
@@ -42,6 +42,7 @@ class UserStore {
                         id: 1,
                         firstName: 'Вася',
                         lastName: 'Пупкин',
+                        email: 'example@mail.ru',
                         role: 'student'
                     };
                     this.state = 'authorized';

@@ -27,21 +27,15 @@ class LoginModal extends React.Component {
         this.emailInput.focus();
     }
 
-    handleEmail = (event) => {
-        this.setState({
-            email: event.target.value
-        });
-    };
-
-    handlePass = (event) => {
-        this.setState({
-            password: event.target.value
-        });
-    };
-
     handleRemember = (event) => {
         this.setState({
             remember: event.target.checked
+        });
+    };
+
+    handleInput = prop => (event) => {
+        this.setState({
+            [prop]: event.target.value
         });
     };
 
@@ -59,18 +53,18 @@ class LoginModal extends React.Component {
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="email"
-                        onInput={this.handleEmail}
+                        onChange={this.handleInput('email')}
                         value={this.state.email}
-                        placeholder="Email"
+                        placeholder="Email..."
                         ref={(inp) => { this.emailInput = inp; }}
                     />
                     <Input
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="password"
-                        onInput={this.handlePass}
+                        onChange={this.handleInput('password')}
                         value={this.state.password}
-                        placeholder="Пароль"
+                        placeholder="Пароль..."
                     />
                     <div className={b('first-group')}>
                         <Checkbox

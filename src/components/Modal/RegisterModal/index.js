@@ -49,42 +49,42 @@ class LoginModal extends React.Component {
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="text"
-                        onInput={this.handleInput('firstName')}
+                        onChange={this.handleInput('firstName')}
                         value={this.state.firstName}
-                        placeholder="Имя"
+                        placeholder="Имя..."
                         ref={(inp) => { this.startingInput = inp; }}
                     />
                     <Input
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="email"
-                        onInput={this.handleInput('lastName')}
+                        onChange={this.handleInput('lastName')}
                         value={this.state.lastName}
-                        placeholder="Фамилия"
+                        placeholder="Фамилия..."
                     />
                     <Input
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="email"
-                        onInput={this.handleInput('email')}
+                        onChange={this.handleInput('email')}
                         value={this.state.email}
-                        placeholder="Email"
+                        placeholder="Email..."
                     />
                     <Input
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="password"
-                        onInput={this.handleInput('password')}
+                        onChange={this.handleInput('password')}
                         value={this.state.password}
-                        placeholder="Пароль"
+                        placeholder="Пароль..."
                     />
                     <Input
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="password"
-                        onInput={this.handleInput('repeated')}
+                        onChange={this.handleInput('repeated')}
                         value={this.state.repeated}
-                        placeholder="Повторите пароль"
+                        placeholder="Повторите пароль..."
                     />
                     <Button className="modal-form__button">
                         Ок

@@ -46,9 +46,9 @@ class LoginModal extends React.Component {
                         className={classNames(b('input'), 'modal-form__input')}
                         theme="dark"
                         type="email"
-                        onInput={this.handleEmail}
+                        onChange={this.handleEmail}
                         value={this.state.email}
-                        placeholder="Email"
+                        placeholder="Email..."
                         ref={(inp) => { this.emailInput = inp; }}
                     />
                     <Button className="modal-form__button">

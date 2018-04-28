@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.header_main {
+    font-size: 4rem;
+}
+
 .header1 {
     font-size: 3rem;
 }
@@ -49,8 +53,6 @@ a {
 
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
 }

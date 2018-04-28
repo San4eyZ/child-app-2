@@ -1,16 +1,41 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import b_ from 'b_';
+import classNames from 'classnames';
+import { Switch, Route } from 'react-router-dom';
+
+import Switcher from '../Switcher';
+import Container from '../Container';
+import DataFieldset from './DataFieldset';
+import PasswordFieldset from './PasswordFieldset';
+
+import './Settings.css';
+
+const b = b_.with('settings');
 
 class Settings extends React.Component {
     render() {
+        const options = [
+            {
+                title: 'Личные данные',
+                path: '/settings'
+            },
+            {
+                title: 'Пароль',
+                path: '/settings/password'
+            }
+        ];
+
         return (
-            <section className="settings">
-                <h1 className="header1">Настройки</h1>
-            </section>
+            <Container className={b()}>
+                <h1 className={classNames(b('heading'), 'header_main')}>Настройки</h1>
+                <Switcher options={options} className={b('switcher')}/>
+                <Switch>
+                    <Route exact path="/settings" component={DataFieldset}/>
+                    <Route path="/settings/password" component={PasswordFieldset}/>
+                </Switch>
+            </Container>
         );
     }
 }
-
-Settings.propTypes = {};
 
 export default Settings;

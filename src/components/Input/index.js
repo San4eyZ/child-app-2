@@ -16,13 +16,13 @@ class Input extends React.Component {
     };
 
     render() {
-        const { type, theme, className, placeholder, onInput, value } = this.props;
+        const { type, theme, className, placeholder, onChange, value } = this.props;
 
         return (
             <input
                 type={type}
                 className={classNames(b('input', { theme: themes[theme] }), className)}
-                onInput={onInput}
+                onChange={onChange}
                 placeholder={placeholder}
                 value={value}
                 ref={(inp) => { this.input = inp; }}
@@ -35,7 +35,7 @@ Input.propTypes = {
     type: PropTypes.string.isRequired,
     theme: PropTypes.oneOf(Object.keys(themes)),
     className: PropTypes.string,
-    onInput: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.string
 };
