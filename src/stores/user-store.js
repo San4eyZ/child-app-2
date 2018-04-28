@@ -1,5 +1,7 @@
 import { observable, computed, action, runInAction } from 'mobx';
 
+const allowedRoles = ['student', 'teacher', 'guest', 'admin'];
+
 class UserStore {
     @observable state = 'initial';
     @observable user;
@@ -8,12 +10,16 @@ class UserStore {
         return this.state === 'loading';
     }
 
-    @computed get isAuthorized() {
-        return this.state === 'authorized';
-    }
-
     @computed get role() {
-        return this.user && this.user.role;
+        if (!this.user) {
+            return 'guest';
+        }
+
+        if (allowedRoles.includes(this.user.role)) {
+            return this.user.role;
+        }
+
+        return 'guest';
     }
 
     @action initialAuth = async () => {

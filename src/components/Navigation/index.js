@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import UserNavigation from './UserNavigation';
+import StudentNavigation from './StudentNavigation';
 import TeacherNavigation from './TeacherNavigation';
 
 import './Navigation.css';
 
 const types = {
-    user: UserNavigation,
+    student: StudentNavigation,
     teacher: TeacherNavigation
 };
 
@@ -24,7 +24,7 @@ class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-    type: PropTypes.oneOf(['user', 'teacher']).isRequired,
+    type: PropTypes.oneOf(Object.keys(types)).isRequired,
     className: PropTypes.string
 };
 

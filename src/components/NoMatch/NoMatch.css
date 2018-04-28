@@ -1,0 +1,27 @@
+.no-match {
+    padding: 20px;
+    background: #ffae7e;
+    color: #4a2359;
+}
+
+.no-match__heading {
+    margin: 0 0 20px;
+}
+
+.no-match__link {
+    display: inline-block;
+    padding: 5px 15px;
+
+    background: #4a2359;
+    color: #ffae7e;
+    border-radius: 20px;
+
+    font-size: 2rem;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.no-match__link:hover {
+    color: #ff7b2f;
+    background: #6c3382;
+}

@@ -1,0 +1,10 @@
+.admin-page {
+    padding: 30px;
+
+    background: #ffae7e;
+    color: #4a2359;
+}
+
+.admin-page__heading {
+    margin: 0;
+}

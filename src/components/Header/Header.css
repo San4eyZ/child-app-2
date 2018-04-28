@@ -6,6 +6,10 @@
     padding: 20px 0;
 }
 
+.header__welcome {
+    font-size: 2rem;
+}
+
 .header__navigation {
 }
 

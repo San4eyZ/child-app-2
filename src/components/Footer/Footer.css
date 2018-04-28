@@ -34,6 +34,10 @@
     color: #4a254a;
 }
 
+span.footer__link:hover {
+    color: #6a366b;
+}
+
 @media (max-width: 768px) {
     .footer__tagline {
         background: #f9907a;

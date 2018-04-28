@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
 import './App.css';
 
-import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, LoginModal, RegisterModal, ResetModal } from '../../components';
+import { Footer, Header, LoaderPage, LoginModal, RegisterModal, ResetModal, Routes, AdminPage } from '../../components';
 import Notifier from '../Notifier';
 
 import userStore from '../../stores/user-store';
@@ -13,18 +13,6 @@ import notificationStore from '../../stores/notification-store';
 
 @observer
 class App extends Component {
-    static renderMain() {
-        return (
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/game" component={Game}/>
-                <Route path="/homework" component={Homework}/>
-                <Route path="/settings" component={Settings}/>
-                <Route path="/stats" component={Stats}/>
-            </Switch>
-        );
-    }
-
     static renderModals() {
         return (
             <React.Fragment>
@@ -35,28 +23,38 @@ class App extends Component {
         );
     }
 
-    componentDidMount() {
+    componentWillMount() {
         userStore.initialAuth();
     }
 
     render() {
         return (
-            userStore.isFetching ? (
-                <LoaderPage fixed/>
-            ) : (
-                <BrowserRouter>
-                    <div className="App">
-                        <Header/>
-                        {App.renderMain()}
-                        <Footer/>
-                        {App.renderModals()}
-                        {
-                            !notificationStore.isEmpty &&
-                            <Notifier/>
-                        }
-                    </div>
-                </BrowserRouter>
-            )
+            <BrowserRouter>
+                {
+                    userStore.isFetching ? (
+                        <LoaderPage fixed/>
+                    ) : (
+                        <div className="App">
+                            {
+                                userStore.role === 'admin' ? (
+                                    <AdminPage/>
+                                ) : (
+                                    <React.Fragment>
+                                        <Header/>
+                                        <Routes type={userStore.role}/>
+                                        <Footer/>
+                                    </React.Fragment>
+                                )
+                            }
+                            {App.renderModals()}
+                            {
+                                !notificationStore.isEmpty &&
+                                <Notifier/>
+                            }
+                        </div>
+                    )
+                }
+            </BrowserRouter>
         );
     }
 }

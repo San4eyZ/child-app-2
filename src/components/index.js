@@ -19,10 +19,14 @@ import Button from './Button';
 import LoginModal from './Modal/LoginModal';
 import RegisterModal from './Modal/RegisterModal';
 import ResetModal from './Modal/ResetModal';
+import Groups from './Groups';
+import Routes from './Routes';
+import AdminPage from './AdminPage';
 
 // eslint-disable-next-line
 export { App, Preloader, Footer, Logo, NavigationLink,
     Navigation, Header, Home, LoaderPage, Game,
     Homework, Settings, Stats, Overlay, Input,
-    Checkbox, Button, LoginModal, RegisterModal, ResetModal
+    Checkbox, Button, LoginModal, RegisterModal, ResetModal,
+    Groups, Routes, AdminPage
 };
