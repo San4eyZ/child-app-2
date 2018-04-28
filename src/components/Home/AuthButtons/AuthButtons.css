@@ -1,0 +1,28 @@
+.auth-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-buttons__reg-button,
+.auth-buttons__login-button {
+    padding: 15px;
+    width: 49%;
+
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.auth-buttons__reg-button {
+    border-radius: 50px 0 0 50px;
+}
+
+.auth-buttons__login-button {
+    border-radius: 0 50px 50px 0;
+}
+
+@media (max-width: 400px) {
+    .auth-buttons__reg-button,
+    .auth-buttons__login-button {
+        font-size: 2rem;
+    }
+}

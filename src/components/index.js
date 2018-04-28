@@ -4,7 +4,7 @@ import Preloader from './Preloader';
 import Footer from './Footer';
 import Header from './Header';
 import Logo from './Logo';
-import NavigationLink from './NavigationLink';
+import NavigationLink from './Navigation/NavigationLink';
 import Navigation from './Navigation';
 import Home from './Home';
 import LoaderPage from './LoaderPage';

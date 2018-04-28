@@ -29,7 +29,7 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     theme: PropTypes.oneOf(Object.keys(themes)),
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
@@ -37,7 +37,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    children: [],
     theme: 'light',
     disabled: false,
     className: '',

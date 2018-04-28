@@ -19,6 +19,10 @@ body {
     font-weight: normal;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
 .header1 {
     font-size: 3rem;
 }
@@ -81,4 +85,50 @@ a {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+@keyframes main-hovering-lg {
+    from {
+        top: 50px;
+    }
+    to {
+        top: 70px;
+    }
+}
+
+@keyframes main-hovering-xl {
+    from {
+        top: 70px;
+    }
+    to {
+        top: 100px;
+    }
+}
+
+@keyframes hovering {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 60px;
+    }
+}
+
+@keyframes expansion {
+    from {
+        transform: scale(0.6);
+    }
+    to {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

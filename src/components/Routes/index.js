@@ -15,8 +15,6 @@ class Routes extends React.Component {
     render() {
         const CurrentRoutes = types[this.props.type] || types.guest;
 
-        console.log('e');
-
         return (
             <CurrentRoutes/>
         );

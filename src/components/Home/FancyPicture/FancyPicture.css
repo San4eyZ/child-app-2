@@ -1,0 +1,47 @@
+.fancy-picture {
+    position: relative;
+}
+
+.fancy-picture__pc {
+    max-width: 100%;
+    height: auto;
+}
+
+.fancy-picture__alien {
+    position: absolute;
+
+    left: 115px;
+
+    animation: main-hovering-lg 2s infinite alternate cubic-bezier(.49, .13, .48, .92);
+}
+
+.fancy-picture__alien:nth-child(2) {
+    left: 210px;
+
+    animation-delay: .3s;
+    animation-duration: 1.4s;
+}
+
+.fancy-picture__alien:nth-child(3) {
+    left: 305px;
+
+    animation-delay: .1s;
+    animation-duration: 1.8s;
+}
+
+@media (min-width: 1200px) {
+    .fancy-picture__alien {
+        transform: scale(1.2);
+        left: 140px;
+
+        animation-name: main-hovering-xl;
+    }
+
+    .fancy-picture__alien:nth-child(2) {
+        left: 260px;
+    }
+
+    .fancy-picture__alien:nth-child(3) {
+        left: 380px;
+    }
+}
