@@ -5,9 +5,11 @@ import { observer } from 'mobx-react';
 import './App.css';
 
 import { Footer, Header, Home, LoaderPage, Game, Homework, Settings, Stats, LoginModal, RegisterModal, ResetModal } from '../../components';
+import Notifier from '../Notifier';
 
 import userStore from '../../stores/user-store';
 import uiStore from '../../stores/ui-store';
+import notificationStore from '../../stores/notification-store';
 
 @observer
 class App extends Component {
@@ -48,6 +50,10 @@ class App extends Component {
                         {App.renderMain()}
                         <Footer/>
                         {App.renderModals()}
+                        {
+                            !notificationStore.isEmpty &&
+                            <Notifier/>
+                        }
                     </div>
                 </BrowserRouter>
             )

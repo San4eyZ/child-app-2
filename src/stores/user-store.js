@@ -52,6 +52,11 @@ class UserStore {
                 this.state = 'unauthorized';
             });
         }
+    };
+
+    @action logOut = () => {
+        this.state = 'unauthorized';
+        this.user = undefined;
     }
 }
 
