@@ -10,10 +10,4 @@ install:
 script:
   - npm run lint
   - npm run build
-  - npm run deploy
 
-after_script:
-  - npm run alias
-
-global:
-    secure: yNdVtIP6AvW5t4wDfFpvHDs7

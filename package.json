@@ -18,19 +18,12 @@
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
-    "now": "^11.1.7",
     "react-app-rewire-mobx": "^1.0.8",
     "react-app-rewired": "^1.5.2"
   },
-  "now": {
-    "name": "child-app-2",
-    "alias": "childapp.now.sh"
-  },
   "scripts": {
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "lint": "eslint src",
-    "deploy": "now ./build -e NODE_ENV=production --token yNdVtIP6AvW5t4wDfFpvHDs7 --npm",
-    "alias": "now alias --token=yNdVtIP6AvW5t4wDfFpvHDs7",
-    "start": "react-app-rewired start"
+    "lint": "eslint src"
   }
 }
