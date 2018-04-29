@@ -1,8 +1,11 @@
 import { observable, computed, action, runInAction } from 'mobx';
 
-import globalData from '../fixtures/globalTable.json';
+class TableDataStore {
+    constructor(url, data) {
+        this.url = url;
+        this.d = data;
+    }
 
-class GlobalStore {
     @observable data;
     @observable state = 'initial';
 
@@ -17,13 +20,14 @@ class GlobalStore {
 
         this.state = 'loading';
 
-        const request = await fetch(`${window.location.origin}/rating/global`);
+        const request = await fetch(this.url);
 
         if (request.status === 200) {
             // let data = await request.json();
 
             setTimeout(action(() => {
-                this.data = globalData;
+                // eslint-disable-next-line
+                this.data = this.d;
                 this.state = 'loaded';
             }), 200);
 
@@ -36,4 +40,4 @@ class GlobalStore {
     };
 }
 
-export default new GlobalStore();
+export default TableDataStore;

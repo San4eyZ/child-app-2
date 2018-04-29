@@ -8,21 +8,15 @@ import LoaderPage from '../../LoaderPage';
 
 import './SpeedTable.css';
 
-import speedStore from '../../../stores/speed-table-store';
-
 const b = b_.with('speed-table');
 
 @observer
 class GlobalTable extends React.Component {
-    componentWillMount() {
-        speedStore.fetchData();
-    }
-
     render() {
-        const { className } = this.props;
+        const { store, className } = this.props;
 
         return (
-            speedStore.isFetching ? (
+            store.isFetching ? (
                 <LoaderPage theme="light"/>
             ) : (
                 <table className={classNames(b(), className)}>
@@ -34,7 +28,7 @@ class GlobalTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {speedStore.data.map(({ name, speed }, index) => (
+                        {store.data.map(({ name, speed }, index) => (
                             // eslint-disable-next-line
                             <tr key={index} className={b('row')}>
                                 <td className={b('data')}>{index + 1}</td>
@@ -50,6 +44,8 @@ class GlobalTable extends React.Component {
 }
 
 GlobalTable.propTypes = {
+    // eslint-disable-next-line
+    store: PropTypes.object.isRequired,
     className: PropTypes.string
 };
 

@@ -9,11 +9,30 @@ import SpeedTable from './SpeedTable';
 import Container from '../Container';
 import Switcher from '../Switcher';
 
+import TableDataStore from '../../stores/table-data-store';
+
+import personalData from '../../fixtures/personalTable.json';
+import globalData from '../../fixtures/globalTable.json';
+import speedData from '../../fixtures/speedTable.json';
+
 import './Stats.css';
 
 const b = b_.with('stats');
+// const personalStore = new TableDataStore(`${window.location.origin}/rating/personal`);
+// const globalStore = new TableDataStore(`${window.location.origin}/rating/global`);
+// const speedStore = new TableDataStore(`${window.location.origin}/rating/speed`);
+
+const personalStore = new TableDataStore('../fixtures/personalTable.json', personalData);
+const globalStore = new TableDataStore('../fixtures/globalTable.json', globalData);
+const speedStore = new TableDataStore('../fixtures/speedTable.json', speedData);
 
 class Stats extends React.Component {
+    componentWillMount() {
+        personalStore.fetchData();
+        globalStore.fetchData();
+        speedStore.fetchData();
+    }
+
     render() {
         const options = [
             {
@@ -40,21 +59,21 @@ class Stats extends React.Component {
                             exact
                             path="/stats"
                             render={() => (
-                                <PersonalTable className={b('personal-table')}/>
+                                <PersonalTable store={personalStore} className={b('personal-table')}/>
                             )}
                         />
                         <Route
                             exact
                             path="/stats/global"
                             render={() => (
-                                <GlobalTable className={b('global-table')}/>
+                                <GlobalTable store={globalStore} className={b('global-table')}/>
                             )}
                         />
                         <Route
                             exact
                             path="/stats/global/speed"
                             render={() => (
-                                <SpeedTable className={b('speed-table')}/>
+                                <SpeedTable store={speedStore} className={b('speed-table')}/>
                             )}
                         />
                     </Switch>

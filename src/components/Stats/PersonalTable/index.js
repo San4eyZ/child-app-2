@@ -8,21 +8,15 @@ import LoaderPage from '../../LoaderPage';
 
 import './PersonalTable.css';
 
-import personalStore from '../../../stores/personal-table-store';
-
 const b = b_.with('personal-table');
 
 @observer
 class PersonalTable extends React.Component {
-    componentWillMount() {
-        personalStore.fetchData();
-    }
-
     render() {
-        const { className } = this.props;
+        const { store, className } = this.props;
 
         return (
-            personalStore.isFetching ? (
+            store.isFetching ? (
                 <LoaderPage theme="light"/>
             ) : (
                 <table className={classNames(b(), className)}>
@@ -37,8 +31,7 @@ class PersonalTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* eslint-disable-next-line */}
-                        {personalStore.data.map(({ success, theme, speed, capacity, quantity }, index) => (
+                        {store.data.map(({ success, theme, speed, capacity, quantity }, index) => (
                             // eslint-disable-next-line
                             <tr key={index} className={b('row')}>
                                 <td className={b('data')}>{index + 1}</td>
@@ -59,6 +52,8 @@ class PersonalTable extends React.Component {
 }
 
 PersonalTable.propTypes = {
+    // eslint-disable-next-line
+    store: PropTypes.object.isRequired,
     className: PropTypes.string
 };
 

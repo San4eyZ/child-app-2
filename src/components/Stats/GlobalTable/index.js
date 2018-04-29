@@ -8,21 +8,15 @@ import LoaderPage from '../../LoaderPage';
 
 import './GlobalTable.css';
 
-import globalStore from '../../../stores/global-table-store';
-
 const b = b_.with('global-table');
 
 @observer
 class GlobalTable extends React.Component {
-    componentWillMount() {
-        globalStore.fetchData();
-    }
-
     render() {
-        const { className } = this.props;
+        const { store, className } = this.props;
 
         return (
-            globalStore.isFetching ? (
+            store.isFetching ? (
                 <LoaderPage theme="light"/>
             ) : (
                 <table className={classNames(b(), className)}>
@@ -34,7 +28,7 @@ class GlobalTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {globalStore.data.map(({ name, rating }, index) => (
+                        {store.data.map(({ name, rating }, index) => (
                             // eslint-disable-next-line
                             <tr key={index} className={b('row')}>
                                 <td className={b('data')}>{index + 1}</td>
@@ -50,6 +44,8 @@ class GlobalTable extends React.Component {
 }
 
 GlobalTable.propTypes = {
+    // eslint-disable-next-line
+    store: PropTypes.object.isRequired,
     className: PropTypes.string
 };
 
