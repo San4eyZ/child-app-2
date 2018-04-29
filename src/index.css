@@ -57,6 +57,12 @@ a {
     margin-left: auto;
 }
 
+._theme_main {
+    padding: 30px 0;
+    background: #ffae7e;
+    color: #4a2359;
+}
+
 @media (min-width: 576px) {
     .container {
         max-width: 520px;

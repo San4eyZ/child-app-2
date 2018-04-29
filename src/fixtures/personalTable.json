@@ -1,0 +1,72 @@
+[
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": false,
+    "theme": "Друг",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": false,
+    "theme": "Брат",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": false,
+    "theme": "Друг",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": false,
+    "theme": "Брат",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  },
+  {
+    "success": true,
+    "theme": "Просто",
+    "speed": "1 сек",
+    "capacity": 1,
+    "quantity": 10
+  }
+]

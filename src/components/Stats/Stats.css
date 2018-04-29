@@ -1,0 +1,22 @@
+.stats {
+
+}
+
+.stats__heading {
+    margin: 0 0 20px;
+}
+
+.stats__switcher {
+    margin-bottom: 20px;
+}
+
+.stats__personal-table,
+.stats__global-table,
+.stats__speed-table {
+    margin: 0 auto;
+}
+
+.stats__table-holder {
+    overflow: auto;
+}
+

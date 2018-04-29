@@ -7,13 +7,13 @@
 .switcher__option {
     min-width: 200px;
     padding: 5px 10px;
-    margin-bottom: 10px;
-    font-size: 2rem;
-
-
+    margin: 0 0 10px 5px;
     border: 2px solid;
-    border-left-width: 1px;
-    border-right-width: 1px;
+    box-sizing: border-box;
+
+    font-size: 2rem;
+    color: #4a2359;
+    background: #ffae7e;
 
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
@@ -25,12 +25,11 @@
 
 .switcher__option:first-child {
     padding-left: 15px;
-    border-left-width: 2px;
 }
 
 .switcher__option:last-child {
     padding-right: 15px;
-    border-right-width: 2px;
+    margin-right: 0;
 
 }
 
@@ -53,5 +52,6 @@
         width: 300px;
         box-sizing: border-box;
         border-width: 2px;
+        margin-right: 0;
     }
 }

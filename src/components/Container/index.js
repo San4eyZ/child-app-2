@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Container = ({ children, className }) => (
-    <section className={className}>
+const Container = ({ children, className, main }) => (
+    <section className={`${className} ${main ? '_theme_main' : ''}`}>
         <div className="container">
             {children}
         </div>
@@ -11,11 +11,13 @@ const Container = ({ children, className }) => (
 
 Container.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    main: PropTypes.bool
 };
 
 Container.defaultProps = {
-    className: ''
+    className: '',
+    main: false
 };
 
 export default Container;

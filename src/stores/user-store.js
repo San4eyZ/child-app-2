@@ -23,7 +23,7 @@ class UserStore {
     }
 
     @action initialAuth = async () => {
-        if (this.isFetching) {
+        if (this.isFetching || this.user) {
             return;
         }
 

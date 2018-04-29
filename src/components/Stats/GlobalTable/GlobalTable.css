@@ -1,0 +1,11 @@
+.global-table {
+    font-size: 2rem;
+    border-collapse: collapse;
+}
+
+.global-table__data,
+.global-table__head {
+    padding: 5px 15px;
+
+    border: 2px solid;
+}

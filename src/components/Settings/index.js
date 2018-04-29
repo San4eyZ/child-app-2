@@ -26,7 +26,7 @@ class Settings extends React.Component {
         ];
 
         return (
-            <Container className={b()}>
+            <Container className={b()} main>
                 <h1 className={classNames(b('heading'), 'header_main')}>Настройки</h1>
                 <Switcher options={options} className={b('switcher')}/>
                 <Switch>

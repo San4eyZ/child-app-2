@@ -1,0 +1,19 @@
+.personal-table {
+    font-size: 2rem;
+    border-collapse: collapse;
+}
+
+.personal-table__data,
+.personal-table__head {
+    padding: 5px 15px;
+
+    border: 2px solid;
+}
+
+.personal-table__data_success {
+    background: #1fc113;
+}
+
+.personal-table__data_failure {
+    background: #ff2b0a;
+}
