@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Homework extends React.Component {
     render() {
@@ -10,7 +9,5 @@ class Homework extends React.Component {
         );
     }
 }
-
-Homework.propTypes = {};
 
 export default Homework;

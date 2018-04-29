@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import b_ from 'b_';
 import classNames from 'classnames';
 
-import './NoMatch.css'
+import './NoMatch.css';
 
 const b = b_.with('no-match');
 

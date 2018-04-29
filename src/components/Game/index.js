@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Game extends React.Component {
     render() {
@@ -10,7 +9,5 @@ class Game extends React.Component {
         );
     }
 }
-
-Game.propTypes = {};
 
 export default Game;
