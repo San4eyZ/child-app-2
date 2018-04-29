@@ -2,6 +2,7 @@
     font-family: 'Lobster', cursive;
     color: #ffae7e;
     text-align: center;
+    padding-bottom: 2px;
 
     transition: color 0.2s ease;
 }
@@ -11,5 +12,7 @@
 }
 
 .navigation-link_active {
-    color: #ff5c2f;
+    color: #ff7b2f;
+
+    box-shadow: 0 3px 0 0 #ff7b2f;
 }

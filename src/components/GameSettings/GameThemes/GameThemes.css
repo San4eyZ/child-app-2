@@ -1,0 +1,43 @@
+.game-themes {
+}
+
+.game-themes__wrapper {
+    display: flex;
+    justify-content: space-between
+}
+
+.game-themes__label {
+    margin: 0 0 2px;
+    font-size: 2rem;
+    width: 100px;
+    text-align: left;
+}
+
+.game-themes__optgroup {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2px;
+}
+
+.game-themes__option {
+    margin: 0 1px;
+}
+
+.game-themes__optgroup_reversed {
+    flex-direction: row-reverse;
+}
+
+.game-themes__optgroup_padded {
+    padding-right: 170px;
+}
+
+@media (max-width: 575px) {
+    .game-themes__wrapper {
+        flex-direction: column;
+    }
+
+    .game-themes__label {
+        text-align: center;
+        align-self: center;
+    }
+}

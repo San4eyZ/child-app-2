@@ -1,0 +1,15 @@
+.game {
+
+}
+
+.game__heading {
+    margin: 0 0 20px;
+}
+
+.game__button {
+    margin-top: 20px;
+    padding: 10px 30px;
+
+    border-radius: 50px;
+    font-size: 2rem;
+}

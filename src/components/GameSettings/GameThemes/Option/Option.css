@@ -1,0 +1,23 @@
+.option {
+    display: none;
+}
+
+.option__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid;
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    font-size: 2.1rem;
+
+    cursor: pointer;
+}
+
+.option:checked + .option__label {
+    background: #ff7b2f;
+}
