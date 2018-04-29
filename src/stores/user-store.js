@@ -32,9 +32,9 @@ class UserStore {
         // let user;
 
         try {
-            const request = await fetch(`${window.location.origin}`);
+            const response = await fetch(`${window.location.origin}`, { credentials: 'include' });
 
-            if (request.status === 200) {
+            if (response.status === 200) {
                 // user = await request.json();
 
                 runInAction(() => {

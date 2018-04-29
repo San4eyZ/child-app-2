@@ -1,12 +1,13 @@
 html {
     font-size: 10px;
+    background: #77366b;
 }
 
 body {
     margin: 0;
     padding: 0;
 
-    background: #803e6d;
+    background: #77366b;
     background: url("./assets/images/main-background.png") top center repeat-x;
     background-size: auto 100%;
 

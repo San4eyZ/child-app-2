@@ -1,4 +1,5 @@
 import { observable, computed, action, runInAction } from 'mobx';
+import Notification from '../models/notification';
 
 class TableDataStore {
     constructor(url, data) {
@@ -20,9 +21,9 @@ class TableDataStore {
 
         this.state = 'loading';
 
-        const request = await fetch(this.url);
+        const response = await fetch(this.url, { credentials: 'include' });
 
-        if (request.status === 200) {
+        if (response.status === 200) {
             // let data = await request.json();
 
             setTimeout(action(() => {
@@ -33,6 +34,9 @@ class TableDataStore {
 
             return;
         }
+
+        (new Notification(`Произошла ошибка при загрузке данных: ${response.status}`, 'failure'))
+            .show();
 
         runInAction(() => {
             this.state = 'error';
