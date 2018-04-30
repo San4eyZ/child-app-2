@@ -4,6 +4,7 @@ import b_ from 'b_';
 import classNames from 'classnames';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Button from '../Button';
 import Input from '../Input';
@@ -80,7 +81,7 @@ class GameBoard extends React.Component {
         const displayedResult = givenAnswer ? 'Верно!' : 'Ошибка!';
 
         return (
-            <div className={b('form')}>
+            <div className={b('form')} key="form">
                 <h2 className={b('form-heading')}>Введите ответ</h2>
                 <Input
                     type="text"
@@ -111,17 +112,24 @@ class GameBoard extends React.Component {
         return (
             <section className={b()}>
                 <h1 className={classNames(b('heading'), 'header_main')}>Numbers!</h1>
-                {state !== 'end' ? (
-                    <div
-                        className={b('number', { animated: state === 'playing' })}
-                        style={{ animationDuration: `${options.speed}s` }}
-                    >
-                        {state === 'initial' && 'Вперед!'}
-                        {state === 'playing' && list[this.current]}
-                    </div>
-                ) : (
-                    this.renderAnswerForm()
-                )}
+                <ReactCSSTransitionGroup
+                    transitionName="form"
+                    transitionAppearTimeout={500}
+                    transitionLeave={false}
+                >
+                    {state !== 'end' ? (
+                        <div
+                            className={b('number', { animated: state === 'playing' })}
+                            style={{ animationDuration: `${options.speed}s` }}
+                            key="counter"
+                        >
+                            {state === 'initial' && 'Вперед!'}
+                            {state === 'playing' && list[this.current]}
+                        </div>
+                    ) : (
+                        this.renderAnswerForm()
+                    )}
+                </ReactCSSTransitionGroup>
                 <div className={b('buttons')}>
                     <Button
                         className={b('button')}
