@@ -35,6 +35,7 @@ class UserStore {
             const response = await fetch(`${window.location.origin}`, { credentials: 'include' });
 
             if (response.status === 200) {
+                // TODO прием результата
                 // user = await request.json();
 
                 runInAction(() => {

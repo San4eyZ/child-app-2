@@ -25,6 +25,7 @@ class TableDataStore {
 
         if (response.status === 200) {
             // let data = await request.json();
+            // TODO прием результата
 
             setTimeout(action(() => {
                 // eslint-disable-next-line

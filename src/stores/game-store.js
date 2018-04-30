@@ -28,12 +28,13 @@ class GameStore {
         });
 
         if (response.status === 200) {
-            const list = response.json();
+            // const list = response.json();
+            // TODO прием результата
 
-            runInAction(() => {
-                this.list = list;
+            setTimeout(action(() => {
+                this.list = [1, 2, 3, 4, 5];
                 this.state = 'loaded';
-            });
+            }), 200);
 
             return;
         }
@@ -44,7 +45,21 @@ class GameStore {
         runInAction(() => {
             this.state = 'initial';
         });
-    }
+    };
+
+    @action reload = (gameData) => {
+        if (this.isFetching) {
+            return;
+        }
+
+        this.clear();
+        this.fetchList(gameData);
+    };
+
+    @action clear = () => {
+        this.state = 'initial';
+        this.list = undefined;
+    };
 }
 
-export default new GameStore();
+export default GameStore;

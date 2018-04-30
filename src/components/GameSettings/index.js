@@ -16,7 +16,6 @@ class GameSettings extends React.Component {
 
         return (
             <section className={classNames(b(), className)}>
-                <h1 className={classNames(b('heading'), 'header1')}>Настройки</h1>
                 <p className={b('label')}>
                     Выберите тему:
                 </p>
