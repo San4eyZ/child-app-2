@@ -1,7 +1,7 @@
 import { observable, computed, action, runInAction } from 'mobx';
 import Notification from '../models/notification';
 
-class TableDataStore {
+class DataStore {
     constructor(url, data) {
         this.url = url;
         this.d = data;
@@ -45,4 +45,4 @@ class TableDataStore {
     };
 }
 
-export default TableDataStore;
+export default DataStore;

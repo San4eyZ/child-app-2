@@ -26,6 +26,7 @@ class GameBoard extends React.Component {
 
     componentDidMount() {
         this.init();
+        this.board.scrollIntoView();
     }
 
     componentWillUnmount() {
@@ -44,7 +45,7 @@ class GameBoard extends React.Component {
                 clearTimeout(this.interval);
                 this.end();
             }
-        }, this.props.options.speed * 1000);
+        }, this.props.speed * 1000);
     };
 
     init = () => {
@@ -106,25 +107,24 @@ class GameBoard extends React.Component {
     }
 
     render() {
-        const { onClose, list, options } = this.props;
+        const { onClose, list } = this.props;
         const { state } = this.state;
 
         return (
-            <section className={b()}>
+            <section className={b()} ref={(el) => { this.board = el; }}>
                 <h1 className={classNames(b('heading'), 'header_main')}>Numbers!</h1>
                 <ReactCSSTransitionGroup
                     transitionName="form"
-                    transitionAppearTimeout={500}
+                    transitionEnterTimeout={500}
                     transitionLeave={false}
                 >
                     {state !== 'end' ? (
                         <div
-                            className={b('number', { animated: state === 'playing' })}
-                            style={{ animationDuration: `${options.speed}s` }}
+                            className={b('number'/* , { animated: state === 'playing' } */)}
+                            /* style={{ animationDuration: `${speed}s` }} */
                             key="counter"
                         >
-                            {state === 'initial' && 'Вперед!'}
-                            {state === 'playing' && list[this.current]}
+                            {state === 'initial' ? 'Вперед' : list[this.current]}
                         </div>
                     ) : (
                         this.renderAnswerForm()
@@ -146,12 +146,7 @@ class GameBoard extends React.Component {
 
 GameBoard.propTypes = {
     list: PropTypes.arrayOf(PropTypes.number).isRequired,
-    options: PropTypes.shape({
-        options: PropTypes.object,
-        speed: PropTypes.number,
-        capacity: PropTypes.number,
-        quantity: PropTypes.number
-    }).isRequired,
+    speed: PropTypes.number.isRequired,
     onClose: PropTypes.func.isRequired,
     onAnswerInput: PropTypes.func.isRequired,
     onAnswerSend: PropTypes.func.isRequired,

@@ -9,7 +9,7 @@ import SpeedTable from './SpeedTable';
 import Container from '../Container';
 import Switcher from '../Switcher';
 
-import TableDataStore from '../../stores/table-data-store';
+import DataStore from '../../stores/data-store';
 
 import personalData from '../../fixtures/personalTable.json';
 import globalData from '../../fixtures/globalTable.json';
@@ -18,13 +18,13 @@ import speedData from '../../fixtures/speedTable.json';
 import './Stats.css';
 
 const b = b_.with('stats');
-// const personalStore = new TableDataStore(`${window.location.origin}/rating/personal`);
-// const globalStore = new TableDataStore(`${window.location.origin}/rating/global`);
-// const speedStore = new TableDataStore(`${window.location.origin}/rating/speed`);
+// const personalStore = new DataStore(`${window.location.origin}/rating/personal`);
+// const globalStore = new DataStore(`${window.location.origin}/rating/global`);
+// const speedStore = new DataStore(`${window.location.origin}/rating/speed`);
 
-const personalStore = new TableDataStore('../fixtures/personalTable.json', personalData);
-const globalStore = new TableDataStore('../fixtures/globalTable.json', globalData);
-const speedStore = new TableDataStore('../fixtures/speedTable.json', speedData);
+const personalStore = new DataStore('../fixtures/personalTable.json', personalData);
+const globalStore = new DataStore('../fixtures/globalTable.json', globalData);
+const speedStore = new DataStore('../fixtures/speedTable.json', speedData);
 
 class Stats extends React.Component {
     componentWillMount() {

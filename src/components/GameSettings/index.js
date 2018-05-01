@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import b_ from 'b_';
 import classNames from 'classnames';
+import { observer } from 'mobx-react';
 
 import Range from 'react-simple-range';
 import GameThemes from './GameThemes';
@@ -10,6 +11,7 @@ import './GameSettings.css';
 
 const b = b_.with('game-settings');
 
+@observer
 class GameSettings extends React.Component {
     render() {
         const { state, onRangeChange, onOptionChange, className } = this.props;

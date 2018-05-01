@@ -23,7 +23,7 @@ class App extends Component {
         );
     }
 
-    componentWillMount() {
+    componentDidMount() {
         userStore.initialAuth();
     }
 

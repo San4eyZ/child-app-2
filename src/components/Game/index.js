@@ -16,7 +16,7 @@ import './Game.css';
 
 const b = b_.with('game');
 
-const options = observable.object({
+const options = observable({
     options: {
         '0_1': false,
         '0_2': false,
@@ -112,7 +112,7 @@ class Game extends React.Component {
                     <GameBoard
                         list={[...this.gameStore.list]}
                         onClose={this.onClose}
-                        options={options}
+                        speed={options.speed}
                         onAnswerInput={this.onAnswerInput}
                         onAnswerSend={this.onAnswerSend}
                         answer={this.answer}

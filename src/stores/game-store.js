@@ -1,7 +1,7 @@
 import { observable, computed, action, runInAction } from 'mobx';
 
-import process from '../utils/game-data-processor';
-import Notification from '../models/notification';
+// import process from '../utils/game-data-processor';
+// import Notification from '../models/notification';
 
 class GameStore {
     @observable list;
@@ -11,23 +11,24 @@ class GameStore {
         return this.state === 'loading';
     }
 
-    @action fetchList = async (gameData) => {
+    @action fetchList = async (/* gameData */) => {
         if (this.isFetching || this.list) {
             return;
         }
 
         this.state = 'loading';
 
-        const response = await fetch({
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(process(gameData)),
-            credentials: 'include'
-        });
+        // const response = await fetch(`${window.location.origin}/generator`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(process(gameData)),
+        //     credentials: 'include'
+        // });
 
-        if (response.status === 200) {
+        // if (response.status === 200) {
+        if (this.state === 'loading') {
             // const list = response.json();
             // TODO прием результата
 
@@ -38,9 +39,9 @@ class GameStore {
 
             return;
         }
-
-        (new Notification(`Произошла ошибка при загрузке данных: ${response.status}`, 'failure'))
-            .show();
+        //
+        // (new Notification(`Произошла ошибка при загрузке данных: ${response.status}`, 'failure'))
+        //     .show();
 
         runInAction(() => {
             this.state = 'initial';

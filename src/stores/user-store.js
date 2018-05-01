@@ -3,7 +3,7 @@ import { observable, computed, action, runInAction } from 'mobx';
 const allowedRoles = ['student', 'teacher', 'guest', 'admin'];
 
 class UserStore {
-    @observable state = 'initial';
+    @observable state = 'loading';
     @observable user;
 
     @computed get isFetching() {
@@ -23,11 +23,9 @@ class UserStore {
     }
 
     @action initialAuth = async () => {
-        if (this.isFetching || this.user) {
+        if (this.user) {
             return;
         }
-
-        this.state = 'loading';
 
         // let user;
 
