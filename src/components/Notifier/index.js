@@ -13,14 +13,6 @@ const b = b_.with('notifier');
 
 @observer
 class Notifier extends React.Component {
-    componentDidMount() {
-        document.body.style.overflow = 'hidden';
-    }
-
-    componentWillUnmount() {
-        document.body.style.overflow = '';
-    }
-
     render() {
         return (
             <React.Fragment>

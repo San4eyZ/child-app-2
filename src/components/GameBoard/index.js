@@ -107,7 +107,7 @@ class GameBoard extends React.Component {
     }
 
     render() {
-        const { onClose, list } = this.props;
+        const { onClose, list, speed } = this.props;
         const { state } = this.state;
 
         return (
@@ -120,8 +120,8 @@ class GameBoard extends React.Component {
                 >
                     {state !== 'end' ? (
                         <div
-                            className={b('number'/* , { animated: state === 'playing' } */)}
-                            /* style={{ animationDuration: `${speed}s` }} */
+                            className={b('number', { animated: state === 'playing' })}
+                            style={{ animationDuration: `${speed}s` }}
                             key="counter"
                         >
                             {state === 'initial' ? 'Вперед' : list[this.current]}

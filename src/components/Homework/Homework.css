@@ -9,3 +9,7 @@
 .homework__list {
     padding: 0;
 }
+
+.homework__item {
+    margin-bottom: 10px;
+}

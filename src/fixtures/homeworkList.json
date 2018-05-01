@@ -1,6 +1,7 @@
 {
-  "homework": [
+  "list": [
     {
+      "id": 7,
       "name": "Домашка",
       "speed": 1,
       "theme": "Просто",
@@ -9,6 +10,7 @@
       "answer": 13
     },
     {
+      "id": 8,
       "name": "Домашка",
       "speed": 1.5,
       "theme": "Просто",
@@ -17,6 +19,7 @@
       "answer": 15
     },
     {
+      "id": 9,
       "name": "Домашка",
       "speed": 0.5,
       "theme": "Просто",
@@ -25,6 +28,7 @@
       "answer": 19
     },
     {
+      "id": 10,
       "name": "Домашка",
       "speed": 1,
       "theme": "Просто",
@@ -33,6 +37,7 @@
       "answer": 13
     },
     {
+      "id": 11,
       "name": "Домашка",
       "speed": 1.5,
       "theme": "Просто",
@@ -41,6 +46,7 @@
       "answer": 15
     },
     {
+      "id": 12,
       "name": "Домашка",
       "speed": 0.5,
       "theme": "Просто",
@@ -51,36 +57,42 @@
   ],
   "history":[
     {
+      "id": 6,
       "name": "Домашка",
       "speed": 1,
       "theme": "Просто",
       "capacity": 2
     },
     {
+      "id": 1,
       "name": "Домашка",
       "speed": 1.5,
       "theme": "Просто",
       "capacity": 2
     },
     {
+      "id": 2,
       "name": "Домашка",
       "speed": 0.5,
       "theme": "Просто",
       "capacity": 2
     },
     {
+      "id": 3,
       "name": "Домашка",
       "speed": 1,
       "theme": "Просто",
       "capacity": 2
     },
     {
+      "id": 4,
       "name": "Домашка",
       "speed": 1.5,
       "theme": "Просто",
       "capacity": 2
     },
     {
+      "id": 5,
       "name": "Домашка",
       "speed": 0.5,
       "theme": "Просто",
