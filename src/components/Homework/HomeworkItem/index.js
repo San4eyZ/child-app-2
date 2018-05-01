@@ -25,7 +25,7 @@ class HomeworkItem extends React.Component {
     };
 
     render() {
-        const { className, name, capacity, speed, onStart, theme } = this.props;
+        const { className, name, capacity, speed, onStart, theme, history } = this.props;
         const { isInfoShown } = this.state;
 
         return (
@@ -46,9 +46,12 @@ class HomeworkItem extends React.Component {
                             <span className={b('name')}>Скорость: </span>
                             <span className={b('amount')}>{speed} сек</span>
                         </div>
-                        <Button className={b('button')} onClick={onStart} theme="dark">
-                            Выполнить
-                        </Button>
+                        <React.Fragment>
+                            {!history &&
+                            <Button className={b('button')} onClick={onStart} theme="dark">
+                                Выполнить
+                            </Button>}
+                        </React.Fragment>
                     </div>
                 }
             </li>
@@ -61,12 +64,15 @@ HomeworkItem.propTypes = {
     name: PropTypes.string.isRequired,
     capacity: PropTypes.number.isRequired,
     speed: PropTypes.number.isRequired,
-    onStart: PropTypes.func.isRequired,
-    theme: PropTypes.string.isRequired
+    onStart: PropTypes.func,
+    theme: PropTypes.string.isRequired,
+    history: PropTypes.bool
 };
 
 HomeworkItem.defaultProps = {
-    className: ''
+    className: '',
+    history: false,
+    onStart: () => {}
 };
 
 export default HomeworkItem;

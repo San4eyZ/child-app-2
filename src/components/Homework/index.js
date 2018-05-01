@@ -2,7 +2,9 @@ import React from 'react';
 import b_ from 'b_';
 import classNames from 'classnames';
 import { observer } from 'mobx-react';
+import { Route, Switch } from 'react-router-dom';
 
+import Switcher from '../Switcher';
 import Container from '../Container';
 import HomeworkItem from './HomeworkItem';
 import LoaderPage from '../LoaderPage';
@@ -14,6 +16,52 @@ import homeworkStore from '../../stores/homework-store';
 import Notification from '../../models/notification';
 
 const b = b_.with('homework');
+
+const HomeworkList = observer(({ startGame }) => (
+    <React.Fragment>
+        <h1 className={classNames(b('heading'), 'header_main')}>Домашка</h1>
+        {homeworkStore.isFetching ? (
+            <LoaderPage theme="light"/>
+        ) : (
+            <ul className={b('list')}>
+                {homeworkStore.list
+                    .map(({ id, name, theme, capacity, collection, speed }) => (
+                        <HomeworkItem
+                            className={b('item')}
+                            key={id}
+                            name={name}
+                            capacity={capacity}
+                            speed={speed}
+                            theme={theme}
+                            onStart={() => {
+                                startGame(collection, speed, id);
+                            }}
+                        />
+                    ))}
+            </ul>
+        )}
+    </React.Fragment>
+));
+
+const HistoryList = observer(() => (
+    <React.Fragment>
+        <h1 className={classNames(b('heading'), 'header_main')}>История</h1>
+        <ul className={b('list')}>
+            {homeworkStore.history
+                .map(({ id, name, theme, capacity, speed }) => (
+                    <HomeworkItem
+                        className={b('item')}
+                        key={id}
+                        name={name}
+                        capacity={capacity}
+                        speed={speed}
+                        theme={theme}
+                        history
+                    />
+                ))}
+        </ul>
+    </React.Fragment>
+));
 
 @observer
 class Homework extends React.Component {
@@ -83,45 +131,52 @@ class Homework extends React.Component {
         });
     };
 
-    render() {
+    renderMain = () => {
         const { displayBoard, currentList, currentSpeed, answer } = this.state;
 
         return (
+            displayBoard ? (
+                <GameBoard
+                    list={[...currentList]}
+                    speed={currentSpeed}
+                    onClose={this.clearState}
+                    onAnswerInput={this.onAnswerInput}
+                    onAnswerSend={this.onAnswerSend}
+                    answer={answer}
+                />
+            ) : (
+                <HomeworkList startGame={this.startGame}/>
+            )
+        );
+    };
+
+    // eslint-disable-next-line
+    renderHistory = () => homeworkStore.isFetching ? (
+        <LoaderPage theme="light"/>
+    ) : (
+        <HistoryList/>
+    );
+
+    render() {
+        const options = [
+            {
+                title: 'Не выполненные',
+                path: '/homework'
+            },
+            {
+                title: 'Выполненные',
+                path: '/homework/history'
+            }
+        ];
+        const { displayBoard } = this.state;
+
+        return (
             <Container className={classNames(b(), '_theme_main')}>
-                {displayBoard ? (
-                    <GameBoard
-                        list={[...currentList]}
-                        speed={currentSpeed}
-                        onClose={this.clearState}
-                        onAnswerInput={this.onAnswerInput}
-                        onAnswerSend={this.onAnswerSend}
-                        answer={answer}
-                    />
-                ) : (
-                    <React.Fragment>
-                        <h1 className={classNames(b('heading'), 'header_main')}>Домашка</h1>
-                        {homeworkStore.isFetching ? (
-                            <LoaderPage theme="light"/>
-                        ) : (
-                            <ul className={b('list')}>
-                                {homeworkStore.list
-                                    .map(({ id, name, theme, capacity, collection, speed }) => (
-                                        <HomeworkItem
-                                            className={b('item')}
-                                            key={id}
-                                            name={name}
-                                            capacity={capacity}
-                                            speed={speed}
-                                            theme={theme}
-                                            onStart={() => {
-                                                this.startGame(collection, speed, id);
-                                            }}
-                                        />
-                                    ))}
-                            </ul>
-                        )}
-                    </React.Fragment>
-                )}
+                { !displayBoard && <Switcher options={options}/>}
+                <Switch>
+                    <Route exact path="/homework" render={this.renderMain}/>
+                    <Route path="/homework/history" render={this.renderHistory}/>
+                </Switch>
             </Container>
         );
     }
