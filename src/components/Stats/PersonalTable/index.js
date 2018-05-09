@@ -31,7 +31,8 @@ class PersonalTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {store.data.map(({ success, theme, speed, capacity, quantity }, index) => (
+                        {store.data &&
+                        store.data.map(({ success, theme, speed, capacity, quantity }, index) => (
                             // eslint-disable-next-line
                             <tr key={index} className={b('row')}>
                                 <td className={b('data')}>{index + 1}</td>

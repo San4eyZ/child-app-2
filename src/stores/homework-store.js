@@ -13,28 +13,41 @@ class HomeworkStore {
     }
 
     @action fetchHomework = async () => {
-        const response = await fetch(`${window.location.origin}/homework`, { credentials: 'include' });
+        this.state = 'loading';
 
-        if (response.status === 200) {
-            // let data = await request.json();
-            // TODO прием результата
+        let response;
 
-            setTimeout(action(() => {
-                // eslint-disable-next-line
-                this.list = homework.list;
-                this.history = homework.history;
-                this.state = 'loaded';
-            }), 200);
+        try {
+            response = await fetch(`${window.location.origin}/homework`, { credentials: 'include' });
 
-            return;
+            if (response.status === 200) {
+                // let data = await request.json();
+                // TODO прием результата
+
+                setTimeout(action(() => {
+                    // eslint-disable-next-line
+                    this.list = homework.list;
+                    this.history = homework.history;
+                    this.state = 'loaded';
+                }), 200);
+
+                return;
+            }
+
+            (new Notification(`Произошла ошибка при загрузке домашек. Код ошибки: ${response.status}`, 'failure'))
+                .show();
+
+            runInAction(() => {
+                this.state = 'error';
+            });
+        } catch (e) {
+            (new Notification(`Произошла ошибка при загрузке домашек. Код ошибки: ${response.status}`, 'failure'))
+                .show();
+
+            runInAction(() => {
+                this.state = 'error';
+            });
         }
-
-        (new Notification(`Произошла ошибка при загрузке домашек. Код ошибки: ${response.status}`, 'failure'))
-            .show();
-
-        runInAction(() => {
-            this.state = 'error';
-        });
     };
 
     @action moveToHistory = (id) => {

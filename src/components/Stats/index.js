@@ -1,6 +1,7 @@
 import React from 'react';
 import b_ from 'b_';
 import classNames from 'classnames';
+import { observer } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
 
 import PersonalTable from './PersonalTable';
@@ -26,6 +27,7 @@ const personalStore = new DataStore('../fixtures/personalTable.json', personalDa
 const globalStore = new DataStore('../fixtures/globalTable.json', globalData);
 const speedStore = new DataStore('../fixtures/speedTable.json', speedData);
 
+@observer
 class Stats extends React.Component {
     componentWillMount() {
         personalStore.fetchData();

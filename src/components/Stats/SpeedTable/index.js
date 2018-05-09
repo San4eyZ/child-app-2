@@ -28,7 +28,7 @@ class GlobalTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {store.data.map(({ name, speed }, index) => (
+                        {store.data && store.data.map(({ name, speed }, index) => (
                             // eslint-disable-next-line
                             <tr key={index} className={b('row')}>
                                 <td className={b('data')}>{index + 1}</td>

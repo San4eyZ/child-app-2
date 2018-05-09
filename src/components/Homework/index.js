@@ -24,20 +24,24 @@ const HomeworkList = observer(({ startGame }) => (
             <LoaderPage theme="light"/>
         ) : (
             <ul className={b('list')}>
-                {homeworkStore.list
-                    .map(({ id, name, theme, capacity, collection, speed }) => (
-                        <HomeworkItem
-                            className={b('item')}
-                            key={id}
-                            name={name}
-                            capacity={capacity}
-                            speed={speed}
-                            theme={theme}
-                            onStart={() => {
-                                startGame(collection, speed, id);
-                            }}
-                        />
-                    ))}
+                {homeworkStore.list ? (
+                    homeworkStore.list
+                        .map(({ id, name, theme, capacity, collection, speed }) => (
+                            <HomeworkItem
+                                className={b('item')}
+                                key={id}
+                                name={name}
+                                capacity={capacity}
+                                speed={speed}
+                                theme={theme}
+                                onStart={() => {
+                                    startGame(collection, speed, id);
+                                }}
+                            />
+                        ))
+                ) : (
+                    <div className={b('error')}>Произошла ошибка при загрузке данных</div>
+                )}
             </ul>
         )}
     </React.Fragment>
@@ -47,20 +51,31 @@ const HistoryList = observer(() => (
     <React.Fragment>
         <h1 className={classNames(b('heading'), 'header_main')}>История</h1>
         <ul className={b('list')}>
-            {homeworkStore.history
-                .map(({ id, name, theme, capacity, speed }) => (
-                    <HomeworkItem
-                        className={b('item')}
-                        key={id}
-                        name={name}
-                        capacity={capacity}
-                        speed={speed}
-                        theme={theme}
-                        history
-                    />
-                ))}
+            {homeworkStore.history ? (
+                homeworkStore.history
+                    .map(({ id, name, theme, capacity, speed }) => (
+                        <HomeworkItem
+                            className={b('item')}
+                            key={id}
+                            name={name}
+                            capacity={capacity}
+                            speed={speed}
+                            theme={theme}
+                            history
+                        />
+                    ))
+            ) : (
+                <div className={b('error')}>Произошла ошибка при загрузке данных</div>
+            )}
         </ul>
     </React.Fragment>
+));
+
+// eslint-disable-next-line
+const History = observer(() => homeworkStore.isFetching ? (
+    <LoaderPage theme="light"/>
+) : (
+    <HistoryList/>
 ));
 
 @observer
@@ -150,13 +165,6 @@ class Homework extends React.Component {
         );
     };
 
-    // eslint-disable-next-line
-    renderHistory = () => homeworkStore.isFetching ? (
-        <LoaderPage theme="light"/>
-    ) : (
-        <HistoryList/>
-    );
-
     render() {
         const options = [
             {
@@ -172,10 +180,10 @@ class Homework extends React.Component {
 
         return (
             <Container className={classNames(b(), '_theme_main')}>
-                { !displayBoard && <Switcher options={options}/>}
+                {!displayBoard && <Switcher options={options}/>}
                 <Switch>
                     <Route exact path="/homework" render={this.renderMain}/>
-                    <Route path="/homework/history" render={this.renderHistory}/>
+                    <Route path="/homework/history" component={History}/>
                 </Switch>
             </Container>
         );
